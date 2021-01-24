@@ -55,13 +55,23 @@ const questions = [{
 ];
 
 inquirer.prompt(questions).then((data) => {
-  const res = JSON.stringify(data);
+  const username = JSON.stringify(data.username);
+  const email = JSON.stringify(data.email);
+  const projName = JSON.stringify(data.projName);
+  const projDes = JSON.stringify(data.projDes);
+  const license = JSON.stringify(data.license);
+  const cmdInstall = JSON.stringify(data.cmdInstall);
+  const cmdTest = JSON.stringify(data.cmdTest);
+  const infoUse = JSON.stringify(data.infoUse);
+  const infoCont = JSON.stringify(data.infoCont);
+
+  const res = `Hi! My name is ${username}\n## Description`
+
   console.log(res);
   writeToFile(res);
 });
 
 // TODO: Create a function to write README file
-
 function writeToFile(data) {
   fs.writeFile("README.md", data, (err) =>
     err ? console.error(err) : console.log('Success!')
@@ -70,7 +80,9 @@ function writeToFile(data) {
 }
 
 // TODO: Create a function to initialize app
-function init() { }
+function init() {
+
+}
 
 // Function call to initialize app
 init();
